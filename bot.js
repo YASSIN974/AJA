@@ -1,14 +1,13 @@
 const { Client, Util } = require('discord.js');
-const { TOKEN, PREFIX, GOOGLE_API_KEY } = require('./cconfig');
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 
 const client = new Client({ disableEveryone: true });
-
+const GOOGLE_API_KEY = 'AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8';
 const youtube = new YouTube(GOOGLE_API_KEY);
 
 const queue = new Map();
-
+const PREFIX = '^';
 client.on('warn', console.warn);
 
 client.on('error', console.error);
@@ -115,7 +114,7 @@ client.on('message', async msg => { // eslint disable line
                           }
                         ]
                       }
-                    });
+                    }).then(message =>{message.delete(20000)})
                     // eslint-disable-next-line max-depth
                     try {
                         var response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
@@ -133,7 +132,7 @@ client.on('message', async msg => { // eslint disable line
                               }
                             ]
                           }
-                        });
+                        }).then(message =>{message.delete(5000)})
                     }
                     const videoIndex = (response.first().content);
                     var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
@@ -147,7 +146,7 @@ client.on('message', async msg => { // eslint disable line
                           }
                         ]
                       }
-                    });
+                    }).then(message =>{message.delete(5000)})
                 }
             }
 
@@ -163,7 +162,7 @@ client.on('message', async msg => { // eslint disable line
               }
             ]
           }
-        });
+        }).then(message =>{message.delete(5000)})
         if (!serverQueue) return msg.channel.send({embed: {
             color: 15158332,
             fields: [{
@@ -172,7 +171,7 @@ client.on('message', async msg => { // eslint disable line
               }
             ]
           }
-        });
+        }).then(message =>{message.delete(5000)})
         serverQueue.connection.dispatcher.end();
         return undefined;
     } else if (msg.content.startsWith(`${PREFIX}stop`)) {
@@ -185,7 +184,7 @@ client.on('message', async msg => { // eslint disable line
               }
             ]
           }
-        });
+        }).then(message =>{message.delete(5000)})
         if (!serverQueue) return msg.channel.send({embed: {
             color: 15158332,
             fields: [{
@@ -194,7 +193,7 @@ client.on('message', async msg => { // eslint disable line
               }
             ]
           }
-        });
+        }).then(message =>{message.delete(5000)})
         serverQueue.songs = [];
         serverQueue.connection.dispatcher.end('Stop command has been used!');
         return undefined;
@@ -208,7 +207,7 @@ client.on('message', async msg => { // eslint disable line
               }
             ]
           }
-        });
+        }).then(message =>{message.delete(5000)})
         if (!serverQueue) return msg.channel.send({embed: {
             color: 15158332,
             fields: [{
@@ -217,7 +216,7 @@ client.on('message', async msg => { // eslint disable line
               }
             ]
           }
-        });
+        }).then(message =>{message.delete(5000)})
         if (!args[1]) return msg.channel.send({embed: {
             color: 15158332,
             fields: [{
@@ -226,7 +225,7 @@ client.on('message', async msg => { // eslint disable line
               }
             ]
           }
-        });
+        }).then(message =>{message.delete(5000)})
         serverQueue.volume = args[1];
         serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
         return msg.channel.send({embed: {
@@ -237,7 +236,7 @@ client.on('message', async msg => { // eslint disable line
               }
             ]
           }
-        });
+        }).then(message =>{message.delete(5000)})
     } else if (msg.content.startsWith(`${PREFIX}np`)) {
         console.log(`${msg.author.tag} has been used the ${PREFIX}np command in ${msg.guild.name}`);
         if (!serverQueue) return msg.channel.send({embed: {
@@ -248,7 +247,7 @@ client.on('message', async msg => { // eslint disable line
               }
             ]
           }
-        });
+        }).then(message =>{message.delete(5000)})
         return msg.channel.send({embed: {
             color: 15158332,
             fields: [{
@@ -257,7 +256,7 @@ client.on('message', async msg => { // eslint disable line
               }
             ]
           }
-        });
+        }).then(message =>{message.delete(5000)})
     } else if (msg.content.startsWith(`${PREFIX}queue`)) {
         console.log(`${msg.author.tag} has been used the ${PREFIX}queue command in ${msg.guild.name}`);
         if (!serverQueue) return msg.channel.send({embed: {
@@ -268,7 +267,7 @@ client.on('message', async msg => { // eslint disable line
               }
             ]
           }
-        });
+        }).then(message =>{message.delete(5000)})
         return msg.channel.send({embed: {
             color: 15158332,
             fields: [{
@@ -281,11 +280,11 @@ client.on('message', async msg => { // eslint disable line
               }
             ]
           }
-        }); 
+        }).then(message =>{message.delete(5000)})
         } else if(msg.content.startsWith(`${PREFIX}help`)) {
         console.log(`${msg.author.tag} has been used the ${PREFIX}help command in ${msg.guild.name}`);
 
-        msg.channel.send('Please check your direct messages :inbox_tray:');
+        msg.channel.send('Please check your direct messages :inbox_tray:').then(message =>{message.delete(5000)})
 
         msg.react('✅');
 
@@ -328,7 +327,7 @@ client.on('message', async msg => { // eslint disable line
               }
             ]
           }
-        });
+        }).then(message =>{message.delete(5000)})
         }
         return msg.channel.send({embed: {
             color: 15158332,
@@ -338,7 +337,7 @@ client.on('message', async msg => { // eslint disable line
               }
             ]
           }
-        });
+        }).then(message =>{message.delete(2000)})
     } else if (msg.content.startsWith(`${PREFIX}resume`)) {
         console.log(`${msg.author.tag} has been used the ${PREFIX}resume command in ${msg.guild.name}`);
 
@@ -353,7 +352,7 @@ client.on('message', async msg => { // eslint disable line
                   }
                 ]
               }
-            });
+            }).then(message =>{message.delete(5000)})
         }
         return msg.channel.send({embed: {
             color: 15158332,
@@ -363,7 +362,7 @@ client.on('message', async msg => { // eslint disable line
               }
             ]
           }
-        });
+        }).then(message =>{message.delete(5000)})
     }
 
     return undefined;
@@ -418,7 +417,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
                   }
                 ]
               }
-            });
+            }).then(message =>{message.delete(5000)})
         }
         return undefined;
 }
@@ -449,7 +448,6 @@ function play(guild, song) {
           }
         ]
       }
-    });
+    }).then(message =>{message.delete(5000)})
 }
-
-client.login(TOKEN);
+client.login(process.env.BOT_TOKEN);
