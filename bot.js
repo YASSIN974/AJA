@@ -27,7 +27,7 @@ LET'S GO!
 ------------------------------------------------------
 ----------------------Bot's logs----------------------`);
 
-client.user.setActivity("with Blue Malgeran");
+
 });
 
 client.on('disconnect', () => console.log('I just disconnected, making sure you know, I will reconnect now...'));
