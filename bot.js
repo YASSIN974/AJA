@@ -329,7 +329,7 @@ client.on('message', async msg => { // eslint disable line
             timestamp: new Date(),
             footer: {
               icon_url: client.user.avatarURL,
-              text: "© Blue Malgeran"
+              text: "© Misaka"
             }
           }
         });
