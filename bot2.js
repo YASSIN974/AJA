@@ -127,4 +127,4 @@ function search_video(query, callback) {
 function isYouTube(str) {
     return str.toLowerCase().indexOf("youtube.com") > -1;
 }
-client.login(process.env.BOT1_TOKEN));
+client.login(process.env.BOT1_TOKEN);
