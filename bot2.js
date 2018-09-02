@@ -5,7 +5,7 @@ const request = require("request");
 const getYouTubeID = require("get-youtube-id");
 const fetchVideoInfo = require("youtube-info");
 const YouTube = require('simple-youtube-api');
-const config = require('./settings.json');
+//const config = require('./settings.json');
 
 const yt_api_key = "AIzaSyAZdeSFAngg9CkYUGmRIFf4N6qcvHouJ8w";
 const bot_controller = '484757484184272897';
