@@ -21,7 +21,7 @@ var skippers = [];
 
 var guilds = {};
 
-client.login(discord_token);
+//client.login(discord_token);
 
 client.on('message', function (message) {  
     const member = message.member;
