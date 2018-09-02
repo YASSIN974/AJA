@@ -58,12 +58,12 @@ client.on('message', function (message) {
        // voiceChannel.leave();
     }
 });
-
+/*
 client.on('ready', function () {
     client.user.setActivity("Music Probably.");
     console.log("I am working (kinda).");
 });
-
+*/
 function skip_song(message) {
     dispatcher.end();
     if (queue.lenth > 1) {
