@@ -99,38 +99,14 @@ client.on('message', function(message) {
             if (message.guild.voiceConnection) message.guild.voiceConnection.end();
         });
     }
- else if (message.content.startsWith(prefix +`volume`)) {
-        if (!message.member.voiceChannel) return message.channel.send({embed: {
-            color: 15158332,
-            fields: [{
-                name: "❌ Error",
-                value: 'You are not in a voice channel!'
-              }
-            ]
-          }
-        }).then(message =>{message.delete(5000)})
-        
-        if (!args[1]) return message.channel.send({embed: {
-            color: 15158332,
-            fields: [{
-                name: "🔊 Volume",
-                value: `The current volume is: **${dispatcher.volume}**`
-              }
-            ]
-          }
-        }).then(message =>{message.delete(5000)})
-        dispatcher.volume = args[1];
-       dispatcher.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
-        return message.channel.send({embed: {
-            color: 15158332,
-            fields: [{
-                name: "🔊 Volume",
-                value: `I set the volume to: **${args[1]}**`
-              }
-            ]
-          }
-        }).then(message =>{message.delete(5000)})
- }  
+ else if (message.content.startsWith(prefix + 'volume')) {
+        if (!message.member.voiceChannel) return message.reply('**عفوا ,انت غير موجود في روم صوتي**');
+        // console.log(args)
+        if (args > 10000000000000000000000000) return message.reply(':x: **100**');
+        if (args < 1) return message.reply(":x: **1**");
+        dispatcher.setVolume(1 * args / 50);
+        message.channel.sendMessage(`Volume Updated To: **${dispatcher.volume*50}**`);
+    }
     else if (mess.startsWith(prefix + 'pause')) {
         if (!message.member.voiceChannel) return message.reply('**you are not in a voice channel**').then(message =>{message.delete(5000)})
         message.reply(':gear: ').then(() => {
