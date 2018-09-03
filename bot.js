@@ -33,7 +33,7 @@ LET'S GO!
 client.on('ready', function(){
     client.user.setStatus("dnd");
     var ms = 10000 ;
-    var setGame = [`${PREFIX}help`,`lg server`,`fuck klab idk`];
+    var setGame = [`yooooo`,`lolll`,`fuck klab idk`];
     var i = -1;
     var j = 0;
     setInterval(function (){
