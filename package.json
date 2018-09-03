@@ -2,9 +2,9 @@
   "name": "plustest",
   "description": "plustest",
   "version": "2.0.0",
-  "main": "bot2.js",
+  "main": "bot.js",
   "scripts": {
-    "start": "node bot2.js"
+    "start": "node bot.js"
   },
   "repository": {
     "type": "git",
