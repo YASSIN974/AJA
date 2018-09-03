@@ -121,10 +121,10 @@ client.on('message', function(message) {
  else if (message.content.startsWith(prefix + 'volume')) {
         if (!message.member.voiceChannel) return message.reply('**عفوا ,انت غير موجود في روم صوتي**');
         // console.log(args)
-        if (args > 10000000000000000000000000) return message.reply(':x: **100**');
-        if (args < 1) return message.reply(":x: **1**");
+        if (args > 10000000000000000000000000) return message.reply(':x: **100**').then(message =>{message.delete(5000)})
+        if (args < 1) return message.reply(":x: **1**").then(message =>{message.delete(5000)})
         dispatcher.setVolume(1 * args / 50);
-        message.channel.sendMessage(`Volume Updated To: **${dispatcher.volume*50}**`);
+        message.channel.sendMessage(`Volume Updated To: **${dispatcher.volume*50}**`).then(message =>{message.delete(5000)})
     }
     else if (mess.startsWith(prefix + 'pause')) {
         if (!message.member.voiceChannel) return message.reply('**you are not in a voice channel**').then(message =>{message.delete(5000)})
