@@ -7,7 +7,7 @@ const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
  
 const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
-const prefix = 'a';
+const prefix = 'y';
 const discord_token = process.env.BOT_TOKEN;
 
 client.on('ready', function() {
