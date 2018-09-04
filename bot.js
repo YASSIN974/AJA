@@ -119,7 +119,7 @@ client.on('message', async msg => { // eslint disable line
                 var video = await youtube.getVideo(url);
             } catch (error) {
                 try {
-                    var videos = await youtube.searchVideos(searchString, 10);
+                    var videos = await youtube.searchVideos(searchString, 5);
                     let index = 0;
                     msg.channel.send(`**${videos.map(video2 => `\`${++index}\` **-** ${video2.title}`).join('\n')}**`).then(message =>{message.delete(20000)})
                         
