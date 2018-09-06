@@ -540,7 +540,7 @@ if (message.content.startsWith(PREFIX + 'setavatar')) {
     .catch(console.error);
   }
   else {
-    message.reply(`mentions somone`)
+    message.reply(`use yxo @uesr`)
     .then(console.log("Successful error reply"))
     .catch(console.error);
   }
