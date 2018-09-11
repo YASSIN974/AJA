@@ -10,7 +10,7 @@ client.on("ready", () => {
 
 let channel = client.channels.get("489074364512337925"); 
        setInterval(() => {
-channel.send(Math.random().toString(36).substring(7))
+channel.send(Math.random().toString(36).substring(1))
 
      
       
