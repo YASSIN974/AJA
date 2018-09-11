@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const bot = new Discord.Client();
 const mtra9a = new Discord.Client();
-const Bot = new Discord.Clinent();
+const Bot = new Discord.Client();
 client.on("ready", () => {
 console.log('hello again bitch');
  console.log(`Logged in as ${client.user.tag}!`);
