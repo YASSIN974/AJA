@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const bot = new Discord.Client();
 const mtra9a = new Discord.Client();
+const Bot = new Discord.Clinent();
 client.on("ready", () => {
 console.log('hello again bitch');
  console.log(`Logged in as ${client.user.tag}!`);
@@ -32,6 +33,14 @@ let channel =     mtra9a.channels.get("489175033852330004")
 
 });
 });
+Bot.on("ready", () => {
+let channel =     Bot.channels.get("489175033852330004")
+     setInterval(() => {
+    channel.send(Math.random().toString(20).substring(1))
+
+});
+});
 client.login(process.env.BOT_TOKEN3);
 bot.login(process.env.BOT_TOKEN4);
 mtra9a.login(process.env.BOT_TOKEN5);
+Bot.login(process.env.BOT_TOKEN6);
