@@ -19,7 +19,7 @@ channel.send(Math.random().toString(36).substring(1))
 bot.on("ready", () => {
 let channel =     bot.channels.get("489069924736565268")
      setInterval(() => {
-    channel.send(Math.random().toString(30).substring(1))
+    channel.send(Math.random().toString(20).substring(1))
 
 });
 });
