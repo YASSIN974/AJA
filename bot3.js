@@ -26,7 +26,7 @@ let channel =     bot.channels.get("489069924736565268")
 });
 
 mtra9a.on("ready", () => {
-let channel =     mtra9a.channels.get("489069924736565268")
+let channel =     mtra9a.channels.get("489175033852330004")
      setInterval(() => {
     channel.send(Math.random().toString(20).substring(1))
 
