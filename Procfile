@@ -1,4 +1,4 @@
 worker: node bot.js
-worker: node bot3.js
+worker2: node bot3.js
 
 
