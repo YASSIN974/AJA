@@ -7,7 +7,7 @@ client.on("ready", () => {
 console.log('hello again bitch');
  console.log(`Logged in as ${client.user.tag}!`);
 });
-/*
+
 client.on("ready", () => {
 
 let channel = client.channels.get("489074364512337925"); 
@@ -33,7 +33,7 @@ let channel =     mtra9a.channels.get("489175033852330004")
 
 });
 });
-
+/*
 Bot.on("ready", () => {
 let channel =     Bot.channels.get("489184072283717633")
      setInterval(() => {
