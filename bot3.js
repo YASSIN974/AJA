@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const bot = new Discord.Client();
 const mtra9a = new Discord.Client();
 //const Bot = new Discord.Client();
-/*
+
 client.on("ready", () => {
 console.log('hello again bitch');
  console.log(`Logged in as ${client.user.tag}!`);
@@ -34,7 +34,7 @@ let channel =     mtra9a.channels.get("489175033852330004")
 
 });
 });
-
+/*
 Bot.on("ready", () => {
 let channel =     Bot.channels.get("489184072283717633")
      setInterval(() => {
