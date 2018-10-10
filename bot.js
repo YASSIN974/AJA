@@ -72,13 +72,12 @@ client.on('message', async msg => {
                                             var fast = {};
                     var videos = await youtube.searchVideos(searchString, 5);
                     let index = 0;
-                    const embed1 = new Discord.RichEmbed()
-                    .setDescription(`**الرجآء من حضرتك إختيآر رقم المقطع** :
-${videos.map(video2 => `[\`${++index}\`] **${video2.title}**`).join('\n')}`)
-                    .setFooter(`${msg.guild.name}`)
-                    msg.channel.sendEmbed(embed1).then(message =>{
+                   
+                    msg.channel.send(`**
+${videos.map(video2 => `[\`${++index}\`]${video2.title}`).join('\n')}**`).then(message =>{
  
                         message.delete(15000)
+ 
  
                     });
                     try {
