@@ -8,12 +8,23 @@ const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
 const queue = new Map();
 const client = new Discord.Client();
  
-client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag}!`);
-    console.log(`in ${client.guilds.size} servers `)
-    console.log(`[Codes] ${client.users.size}`)
-    client.user.setStatus("dnd")
- client.user.setGame(`☆`,`https://www.twitch.tv/skwadraa`);
+client.on('ready', function(){
+    client.user.setStatus("dnd");
+    var ms = 10000 ;
+    var setGame = [`yooooo`,`lolll`,`fuck you`];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+        client.user.setGame(setGame[i],`https://www.twitch.tv/skwadraa`);
+    }, ms);10000
+
 });
 
 const prefix = "$"
