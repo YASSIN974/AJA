@@ -52,10 +52,7 @@ client.on('message', async msg => {
             return msg.channel.send('لا يتوآجد لدي صلاحية للتكلم بهذآ الروم').then(message =>{message.delete(2000)})
         }
  
-        if (!permissions.has('EMBED_LINKS')) {
-            return msg.channel.sendMessage("**يجب توآفر برمشن `EMBED LINKS`لدي **rl").then(message =>{message.delete(2000)})
-            }
- 
+       
         if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
             const playlist = await youtube.getPlaylist(url);
             const videos = await playlist.getVideos();
