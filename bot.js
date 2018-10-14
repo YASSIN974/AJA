@@ -32,7 +32,7 @@ const devs = ["439187325503930369"];
 const prefix = "$"
 client.on('message', async msg => {
     if (msg.author.bot) return undefined;
-  if (!devs.includes(message.author.id)) return;
+  if (!devs.includes(msg.author.id)) return;
     if (!msg.content.startsWith(prefix)) return undefined;
     const args = msg.content.split(' ');
 
