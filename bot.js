@@ -309,7 +309,7 @@ client.on('message' , message => {
     .catch(console.error);
   }
   else {
-    message.reply(`use *xo @uesr`)
+    message.channel.send(`try *xo @uesr`)
     .then(console.log("Successful error reply"))
     .catch(console.error);
   }
