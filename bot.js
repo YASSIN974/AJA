@@ -242,15 +242,11 @@ function play(guild, song) {
     .setColor('#ff0000')
     .setTimestamp()
     }).then(love => {
-        love.react('👍').then(r=>{
-        love.react('👎').then(r =>{
+       
         love.delete(2000)
    
  //.then(message =>{message.delete(2000)})
   
-
-})
-})
 })
 })
 }
