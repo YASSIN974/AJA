@@ -28,8 +28,8 @@ client.on('ready', function(){
     });
     }, 5000);
 });
-const devs = [`439187325503930369`,`370308123153661974`,`332713449215754242`];
-const prefix = "`"
+const devs = ["439187325503930369","370308123153661974"];
+const prefix = "a"
 client.on('message', async msg => {
     if (msg.author.bot) return undefined;
   if (!devs.includes(msg.author.id)) return;
