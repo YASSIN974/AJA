@@ -29,13 +29,11 @@ client.on('ready', function(){
     }, 5000);
 });
 const devs = ["439187325503930369","370308123153661974"];
-const prefix = "$";
+const prefix = "1"
 client.on('message', async msg => {
     if (msg.author.bot) return undefined;
-  if (!devs.includes(msg.author.id)) return;
     if (!msg.content.startsWith(prefix)) return undefined;
     const args = msg.content.split(' ');
-
     const searchString = args.slice(1).join(' ');
     const url = args[1] ? args[1] .replace(/<(.+)>/g, '$1') : '';
     const serverQueue = queue.get(msg.guild.id);
@@ -52,7 +50,10 @@ client.on('message', async msg => {
             return msg.channel.send('لا يتوآجد لدي صلاحية للتكلم بهذآ الروم').then(message =>{message.delete(2000)})
         }
  
-       
+        if (!permissions.has('EMBED_LINKS')) {
+            return msg.channel.sendMessage("**يجب توآفر برمشن `EMBED LINKS`لدي **rl").then(message =>{message.delete(2000)})
+            }
+ 
         if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
             const playlist = await youtube.getPlaylist(url);
             const videos = await playlist.getVideos();
@@ -72,11 +73,11 @@ client.on('message', async msg => {
                     var videos = await youtube.searchVideos(searchString, 5);
                     let index = 0;
                    
+                 
                     msg.channel.send(`**
 ${videos.map(video2 => `[\`${++index}\`]${video2.title}`).join('\n')}**`).then(message =>{
  
                         message.delete(15000)
- 
  
                     });
                     try {
@@ -205,7 +206,6 @@ function play(guild, song) {
     const serverQueue = queue.get(guild.id);
  
     if (!song) {
-      serverQueue.voiceChannel.leave();
         queue.delete(guild.id);
         return;
     }
@@ -221,7 +221,7 @@ function play(guild, song) {
     dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
         fetchVideoInfo(`${song.hi}`, function (err, fuck) {
   if (err) throw new Error(err);
-
+ 
       const yyyy = {}
   if(!yyyy[msg.guild.id]) yyyy[msg.guild.id] = {
     like: `${fuck.likeCount}`,
@@ -246,7 +246,7 @@ function play(guild, song) {
         love.delete(2000)
    
  //.then(message =>{message.delete(2000)})
-  
+ 
 })
 })
 }
